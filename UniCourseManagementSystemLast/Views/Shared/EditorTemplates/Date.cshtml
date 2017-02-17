@@ -1,0 +1,11 @@
+﻿@*http://stackoverflow.com/questions/6615541/how-to-get-models-field-name-in-custom-editor-template
+http://stackoverflow.com/questions/8186012/how-can-i-get-the-property-name-in-my-mvc3-custom-editor-template
+*@
+@model DateTime?
+
+<div class="input-group">
+    @Html.TextBox("", (Model.HasValue && Model.Value.ToShortDateString().Trim() != "01-Jan-0001" ? Model.Value.ToShortDateString() : string.Empty), new { type = "datetime", @class = "form-control datepicker", id = ViewData.TemplateInfo.GetFullHtmlFieldName("") })
+
+
+    <label for="@ViewData.TemplateInfo.GetFullHtmlFieldName("")" class="input-group-addon"><i class="fa fa-calendar bigger-110 "></i></label>
+</div>

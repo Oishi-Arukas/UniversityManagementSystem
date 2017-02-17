@@ -1,0 +1,142 @@
+﻿@using UniversityCourseResultManagementSystemWebApp.Models
+@*@model UniversityCourseResultManagementSystemWebApp.Models.CourseStatics*@
+
+@*@model IEnumerable<Department>*@
+
+@{
+    List<CourseStatics> courseStatics = ViewBag.CourseStatics;
+    ViewBag.Title = "View Course Statics";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Course Statics</h4>
+
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+
+                <div class="widget-toolbar">
+                    <a href="/Course/InsertCourse" class="btn btn-success">
+                        <i class="fa fa-plus-circle"></i> Add New
+                    </a>
+                </div>
+            </div>
+            <div class="widget-body">
+                <div class="widget-main">
+                    <div class="form-group">
+                        <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                            Department
+                        </label>
+                        <div class="col-sm-10">
+                            @Html.DropDownList("DepartmentId", ViewBag.Departments as IEnumerable<SelectListItem>, "Select Department", new { @name = "departmentId", @id = "departmentId" })
+
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                View Course Information
+                            </label>
+                        </div>
+
+                        <table id="courseAssignedTable" class="table table-striped table-bordered table-hover">
+                            <thead>
+                            <tr>
+                                <th>Code</th>
+                                <th>Name/Title</th>
+                                <th>Semester</th>
+                                <th>Assigned To</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+                                @foreach (var courseStatic in courseStatics)
+                                {
+                                    <tr>
+                                        <td>@courseStatic.CourseCode</td>
+                                        <td>@courseStatic.CourseName</td>
+                                        <td>@courseStatic.Semester</td>
+                                        <td>@courseStatic.TeacherName</td>
+                                        @*<td>
+                                            <div class=" btn-group">
+                                                <a class="btn btn-xs btn-success" href="/Department/details/">
+                                                    <i class="ace-icon fa fa-search-plus bigger-120"></i>
+                                                </a>
+
+                                                <a class="btn btn-xs btn-info" href="/Department/edit/">
+                                                    <i class="ace-icon fa fa-pencil bigger-120"></i>
+                                                </a>
+
+                                                <a class="btn btn-xs btn-danger" href="/Department/delete/">
+                                                    <i class="ace-icon fa fa-trash-o bigger-120"></i>
+                                                </a>
+                                            </div>
+                                        </td>*@
+                                    </tr>
+                                   
+                                }
+                            <tbody>
+</table>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div><!-- /.span -->
+
+</div>
+
+
+
+@section scripts{
+    
+    <script>
+        $(document).ready(function() {
+
+            $("#departmentId").change(function() {
+
+                var departmentId = $("#departmentId").val();
+                var json = { departmentId: departmentId };
+                if (departmentId != 0) {
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("ShowCourseAssignedTable", "Course")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(json),
+
+                        dataType: "json",
+                        success: function(data) {
+                            $("#courseAssignedTable").empty();
+                            $("#courseAssignedTable").append('<thead></thead>');
+                            $("#courseAssignedTable").append('<th>Code</th>');
+                            $("#courseAssignedTable").append('<th>Name/Title</th>');
+                            $("#courseAssignedTable").append('<th>Semester</th>');
+                            $("#courseAssignedTable").append('<th>Assigned To</th>');
+                            $("#courseAssignedTable").append('<thead></thead>');
+                            //$("#courseAssignedTable").append('<tbody></tbody>');
+                            $.each(data, function(key, value) {
+
+                                $("#courseAssignedTable").append('<tr><td></td></tr>');
+                                //$("#courseAssignedTable").append('<thead></thead>');
+
+                                $("#courseAssignedTable").append('<td>' + value.CourseCode + '</td>');
+                                $("#courseAssignedTable").append('<td>' + value.CourseName + '</td>');
+                                $("#courseAssignedTable").append('<td>' + value.Semester + '</td>');
+                                $("#courseAssignedTable").append('<td>' + value.TeacherName + '</td>');
+                            });
+
+                        }
+                    });
+                } else if (departmentId == "") {
+                    var url = '@Url.Action("ViewCourseStatics", "Course")';
+                    window.location.href = url;
+                }
+            });
+        });
+    </script>
+}
+
+

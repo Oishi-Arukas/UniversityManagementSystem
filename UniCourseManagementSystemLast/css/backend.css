@@ -1,0 +1,574 @@
+﻿/*input[type="checkbox"], input[type="radio"]{
+    opacity:1 !important;
+}*/
+
+/* styles for validation helpers */
+.field-validation-error {
+    color: #e80c4d;
+    /*font-weight: bold;*/
+}
+
+.field-validation-valid {
+    display: none;
+}
+
+input.input-validation-error {
+    border: 1px solid #e80c4d !important;
+}
+
+input[type="checkbox"].input-validation-error {
+    border: 0 none;
+}
+
+.validation-summary-errors {
+    color: #e80c4d;
+    font-weight: bold;
+    font-size: 1.1em;
+}
+
+.validation-summary-valid {
+    display: none;
+}
+
+/*bootstep enhance*/
+.form-horizontal .form-actions {
+    padding-left: 0px !important;
+}
+
+.form-actions {
+    margin-bottom: 5px !important;
+    margin-top: 5px !important;
+    padding: 8px 20px 8px !important;
+}
+
+.detail-lbl-row:before, .detail-lbl-row:after {
+    content: "";
+    display: table;
+    line-height: 0;
+}
+
+.detail-lbl-row:after {
+    clear: both;
+}
+
+.detail-lbl-row {
+    /*margin-bottom: 20px;*/
+}
+
+
+/*.detail-lbl-name {
+    float: left;
+    padding-top: 5px;
+    text-align: right;
+    width: 160px;
+}*/
+.detail-lbl-name {
+    float: left;
+    background-color: rgba(0, 0, 0, 0);
+    border-top: 1px dotted #D5E4F1;
+    bottom: 0;
+    color: #667E99;
+    left: 0;
+    padding: 6px 10px 6px 0;
+    top: 0;
+    width: 110px;
+    vertical-align: middle;
+    display: block;
+    /*margin-bottom: 5px;*/
+    /*font-size: 14px;*/
+    font-weight: normal;
+    line-height: 20px;
+    text-align: right;
+    cursor: pointer;
+}
+
+
+.detail-lbl-info {
+    margin: 0 12px;
+}
+
+/*.detail-lbl-row {
+    position: relative;
+    min-height:33px;
+}*/
+
+.detail-lbl-row:first-child .detail-lbl-name {
+    border-top: 0 none;
+}
+/*.detail-lbl-name {
+    background-color: rgba(0, 0, 0, 0);
+    border-top: 1px dotted #D5E4F1;
+    bottom: 0;
+    color: #667E99;
+    font-weight: normal;
+    left: 0;
+    padding: 6px 10px 6px 0;
+    position: absolute;
+    text-align: right;
+    top: 0;
+    width: 110px;
+}*/
+
+.detail-lbl-value {
+    border-top: 1px dotted #D5E4F1;
+    margin-left: 120px;
+    padding: 6px 4px 6px 6px;
+}
+
+.content-wth-700 {
+    max-width: 825px;
+}
+
+.treeview label {
+    margin-right: 10px !important;
+}
+
+/*.group{
+    background-color: #e6ffff !important;
+}*/
+.scrollable-table-height-500 {
+    max-height: 500px;
+    overflow-y: scroll;
+}
+
+.scrollable-table-height-208 {
+    max-height: 208px;
+    overflow-y: scroll;
+}
+
+.contact-message-fixed-height {
+    height: 208px;
+}
+
+td.group {
+    background-color: #D1CFD0;
+    border-bottom: 2px solid #A19B9E;
+    border-top: 2px solid #A19B9E;
+}
+
+.expanded-group {
+    background: url("/Images/minus.jpg") no-repeat scroll left center transparent;
+    padding-left: 15px !important;
+}
+
+.collapsed-group {
+    background: url("/Images/plus.jpg") no-repeat scroll left center transparent;
+    padding-left: 15px !important;
+}
+/*added by aminul bellow
+}*/
+.control-group {
+    margin-bottom: 5px !important;
+}
+
+.radio, .checkbox {
+    padding-left: 0;
+}
+
+.datepicker {
+    width: 180px !important;
+}
+
+.timepicker {
+    width: 180px !important;
+}
+
+input.ace-switch[type="checkbox"] + .lbl {
+    margin: 5px 4px 4px 0 !important;
+}
+
+.lead {
+    color: green !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    line-height: 10px !important;
+}
+
+
+/*added by aminul END
+*/
+
+/*Added By Reza*/
+
+.ace-file-multiple label:before {
+    background-color: #fff !important;
+    border: 0 none !important;
+    color: #ccc !important;
+    content: attr(data-title) !important;
+    display: inline-block !important;
+    font-size: 12px !important;
+    font-weight: bold !important;
+    left: 0 !important;
+    line-height: 13px !important;
+    margin: 12px !important;
+    position: relative !important;
+    right: 0 !important;
+}
+
+.radio input[type="radio"], .checkbox input[type="checkbox"] {
+    float: left !important;
+    margin-left: 0 !important;
+}
+
+.input-drop-down {
+    width: 94px;
+}
+
+.input-text {
+    width: 104px;
+}
+
+.btn-configureID {
+    border-width: 4px !important;
+    font-size: 13px !important;
+    line-height: 21px !important;
+    padding: 0 9px !important;
+}
+
+.tbl-scrollable {
+    display: block !important;
+    overflow-x: auto !important;
+}
+
+.semester-exam-marks-is-absent-check-box {
+    height: 18px !important;
+    opacity: 0 !important;
+    position: relative !important;
+    width: 18px !important;
+    z-index: 12 !important;
+}
+
+.btn-mini-class-routine {
+    border-width: 0 !important;
+    font-size: 12px !important;
+    line-height: 17px !important;
+    padding: 0 0 0 4px !important;
+}
+
+previous-date .next-date {
+    -moz-border-bottom-colors: none !important;
+    -moz-border-left-colors: none !important;
+    -moz-border-right-colors: none !important;
+    -moz-border-top-colors: none !important;
+    background-color: #fff !important;
+    border-color: #fff !important;
+    border-image: none !important;
+    border-style: solid !important;
+    border-width: 1px 1px 1px 0 !important;
+    float: left !important;
+    line-height: 20px !important;
+    padding: 4px 12px !important;
+    text-decoration: none !important;
+}
+
+.fa-change-password {
+    display: inline-block !important;
+    font-family: FontAwesome !important;
+    font-feature-settings: normal !important;
+    font-kerning: auto !important;
+    font-language-override: normal !important;
+    font-size: inherit !important;
+    font-size-adjust: none !important;
+    font-stretch: normal !important;
+    font-style: normal !important;
+    font-synthesis: weight style !important;
+    font-variant: normal !important;
+    font-weight: normal !important;
+    line-height: 1 !important;
+    margin-left: 5px !important;
+    text-rendering: auto !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase;
+}
+
+.control-label2 {
+    float: left;
+    width: 176px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.control-label3 {
+    float: left;
+    width: 188px;
+    padding-top: 5px;
+    text-align: right;
+}
+
+.controls2 {
+    margin-left: 194px;
+}
+
+.controls3 {
+    margin-left: 203px;
+}
+
+.msg-validation {
+    color: #e80c4d;
+    //font-weight:Bold;
+}
+
+.text-right {
+    text-align: right !important;
+}
+
+.sixe-150x163 {
+    max-width: 150px;
+    max-height: 163px;
+}
+
+.sixe-271x163 {
+    max-width: 271px;
+    max-height: 163px;
+}
+
+.modal-custom {
+    width: 359px !important;
+    margin-left: -169px !important;
+}
+
+.modal-header {
+    background: none repeat scroll 0 0 #70A63C !important;
+    border-bottom: 1px solid #EEEEEE !important;
+    padding: 8px 7px !important;
+    color: #FFFFFF !important;
+    font-size: 16px !important;
+    font-weight: bold !important;
+}
+
+.modal-footer {
+    background-color: transparent !important;
+    border-radius: 0 0 6px 6px !important;
+    /*border-top: 1px solid #DDDDDD;*/
+    /*box-shadow: 0 1px 0 #FFFFFF inset;*/
+    margin-bottom: -20px !important;
+    padding: 14px 15px 15px !important;
+    text-align: right !important;
+}
+
+.btn-custom-border {
+    border-radius: 3px 3px 3px 3px !important;
+    border-style: none none solid !important;
+    border-width: medium medium 2px !important;
+}
+
+/*End By Reza*/
+
+.control-text {
+    margin-top: 5px;
+    font-size: 14px;
+}
+
+.total-message-character {
+    color: black !important;
+    font-size: 15px !important;
+    font-weight: bold !important;
+    line-height: 10px !important;
+}
+
+.alert-fixed-top {
+    position: fixed;
+    top: 2px;
+    line-height: 25px;
+    /*z-index:999999;*/
+}
+
+.hide {
+    display: none;
+}
+
+
+.password-reset-container {
+    margin: 0 auto;
+    width: 600px;
+}
+
+.mobile-input {
+    width: 172px !important;
+}
+
+/*override left menu parent  font size*/
+.nav-list > li.active > a, .nav-list > li.active > a:hover, .nav-list > li.active > a:focus, .nav-list > li.active > a:active {
+    font-size: 12px !important;
+}
+/*end override left menu parent font size*/
+
+.tip {
+    font-weight: bold;
+    font-style: italic;
+    margin-bottom: 15px !important;
+}
+
+.margin-top-5 {
+    margin-top: 5px !important;
+}
+
+.margin-top-10 {
+    margin-top: 10px !important;
+}
+
+.margin-top-15 {
+    margin-top: 15px !important;
+}
+
+.margin-top-20 {
+    margin-top: 20px !important;
+}
+
+.margin-bottom-5 {
+    margin-bottom: 5px !important;
+}
+
+.margin-bottom-10 {
+    margin-bottom: 10px !important;
+}
+
+.margin-bottom-15 {
+    margin-bottom: 15px !important;
+}
+
+.margin-bottom-20 {
+    margin-bottom: 20px !important;
+}
+
+.checkbox {
+    opacity: 1 !important;
+}
+
+/*pagination*/
+
+.pagination {
+    display: inline-block;
+    padding-left: 0;
+    margin: 20px 0;
+    border-radius: 4px;
+}
+
+    .pagination > li {
+        display: inline;
+    }
+
+        .pagination > li > a, .pagination > li > span {
+            position: relative;
+            float: left;
+            padding: 10px 20px; /*padding: 6px 12px;*/
+            line-height: 1.428571429;
+            text-decoration: none;
+            color: #337ab7;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            margin-left: -1px;
+        }
+
+        .pagination > li:first-child > a, .pagination > li:first-child > span {
+            margin-left: 0;
+            border-bottom-left-radius: 4px;
+            border-top-left-radius: 4px;
+        }
+
+        .pagination > li:last-child > a, .pagination > li:last-child > span {
+            border-bottom-right-radius: 4px;
+            border-top-right-radius: 4px;
+        }
+
+        .pagination > li > a:hover, .pagination > li > a:focus, .pagination > li > span:hover, .pagination > li > span:focus {
+            color: #23527c;
+            background-color: #eee;
+            border-color: #ddd;
+        }
+
+    .pagination > .active > a, .pagination > .active > a:hover, .pagination > .active > a:focus, .pagination > .active > span, .pagination > .active > span:hover, .pagination > .active > span:focus {
+        z-index: 2;
+        color: #fff;
+        background-color: #337ab7;
+        border-color: #337ab7;
+        cursor: default;
+    }
+
+    .pagination > .disabled > span, .pagination > .disabled > span:hover, .pagination > .disabled > span:focus, .pagination > .disabled > a, .pagination > .disabled > a:hover, .pagination > .disabled > a:focus {
+        color: #777;
+        background-color: #fff;
+        border-color: #ddd;
+        cursor: not-allowed;
+    }
+
+.pagination-lg > li > a, .pagination-lg > li > span {
+    padding: 10px 16px;
+    font-size: 18px;
+}
+
+.pagination-lg > li:first-child > a, .pagination-lg > li:first-child > span {
+    border-bottom-left-radius: 6px;
+    border-top-left-radius: 6px;
+}
+
+.pagination-lg > li:last-child > a, .pagination-lg > li:last-child > span {
+    border-bottom-right-radius: 6px;
+    border-top-right-radius: 6px;
+}
+
+.pagination-sm > li > a, .pagination-sm > li > span {
+    padding: 5px 10px;
+    font-size: 12px;
+}
+
+.pagination-sm > li:first-child > a, .pagination-sm > li:first-child > span {
+    border-bottom-left-radius: 3px;
+    border-top-left-radius: 3px;
+}
+
+.pagination-sm > li:last-child > a, .pagination-sm > li:last-child > span {
+    border-bottom-right-radius: 3px;
+    border-top-right-radius: 3px;
+}
+
+.pager {
+    padding-left: 0;
+    margin: 20px 0;
+    list-style: none;
+    text-align: center;
+}
+
+    .pager:before, .pager:after {
+        content: " ";
+        display: table;
+    }
+
+    .pager:after {
+        clear: both;
+    }
+
+    .pager li {
+        display: inline;
+    }
+
+        .pager li > a, .pager li > span {
+            display: inline-block;
+            padding: 5px 14px;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 15px;
+        }
+
+            .pager li > a:hover, .pager li > a:focus {
+                text-decoration: none;
+                background-color: #eee;
+            }
+
+    .pager .next > a, .pager .next > span {
+        float: right;
+    }
+
+    .pager .previous > a, .pager .previous > span {
+        float: left;
+    }
+
+    .pager .disabled > a, .pager .disabled > a:hover, .pager .disabled > a:focus, .pager .disabled > span {
+        color: #777;
+        background-color: #fff;
+        cursor: not-allowed;
+    }
+
+/*end pagination*/

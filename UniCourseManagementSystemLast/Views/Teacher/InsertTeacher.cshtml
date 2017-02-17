@@ -1,0 +1,167 @@
+﻿@using UniversityCourseResultManagementSystemWebApp.Models
+@model Teacher
+@{
+    ViewBag.Title = "Add Teacher";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+
+}
+
+
+<style>
+    .field-validation-error {
+        color: #ff0000;
+        font-weight: bold;
+        padding-left: 20%;
+    }
+
+    .alert-success {
+        display: none;
+    }
+</style>
+
+<div class="row">
+    <div class="col-xs-12">
+        <div class="widget-box">
+            <div class="widget-header">
+                <h4 class="widget-title">Teacher Add</h4>
+                <div class="widget-toolbar">
+                    <a href="#" data-action="collapse">
+                        <i class="ace-icon fa fa-chevron-up"></i>
+                    </a>
+                </div>
+            </div>
+
+            <div class="widget-body">
+                <div class="widget-main">
+                    @using (Html.BeginForm("InsertTeacher", "Teacher", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+                    {
+                        @Html.ValidationSummary(true)
+                        
+                        <!--?? ei div ta diye show koranor kaj korsi...div start............class label ja ase shb bootstrap er-->
+                        <div class="alert alert-success">
+                            <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                            <p>@ViewBag.ValidationMsg</p>
+                        </div>
+                        <!--?? div end-->
+                        <div class="row">
+                            <div class="col-xs-12">
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Name
+                                    </label>
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(m => m.TeacherName, new { @class = "col-xs-5", @placeholder = "Enter Teacher Name" })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.TeacherName)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Address
+                                    </label>
+                                    <div class="col-sm-10">
+                                        @Html.TextAreaFor(model => model.TeacherAddress, new { @class = "col-xs-5", @placeholder = "Enter Address" })
+                                        @Html.ValidationMessageFor(model => model.TeacherAddress)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Email
+                                    </label>
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.TeacherEmail, new { @class = "col-xs-5", @placeholder = "Enter Email" })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.TeacherEmail)
+                                    </div>
+
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Contact No.
+                                    </label>
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.TeacherContact, new { @class = "col-xs-5", @placeholder = "Enter Contact" })
+                                        @Html.ValidationMessageFor(model => model.TeacherContact)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Designation
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.DesignationId, ViewBag.Designations as IEnumerable<SelectListItem>, "Select Designation", new { @name = "designationId", @id = "designationId" })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.DesignationId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Department
+                                    </label>
+                                    <div class="col-md-9">
+                                        @Html.DropDownListFor(model => model.DepartmentId, ViewBag.Departments as IEnumerable<SelectListItem>, "Select Department", new { @name = "departmentId", @id = "departmentId" })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.DepartmentId)
+                                    </div>
+                                </div>
+                                <div class="form-group">
+                                    <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                        Cradit Taken
+                                    </label>
+                                    <div class="col-sm-10">
+                                        @Html.TextBoxFor(model => model.CreditTaken, new { @class = "col-xs-5", @placeholder = "Enter Credit" })
+                                    </div>
+                                    <div>
+                                        @Html.ValidationMessageFor(model => model.CreditTaken)
+                                    </div>
+                                </div>
+                            
+                            <div class="clearfix form-actions text-center">
+                                <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-floppy-o bigger-110"></i> Save </button>
+                                <a class="btn btn-sm btn-warning" href="">
+                                    <i class="fa fa-arrow-left bigger-110"></i>
+                                    Refresh
+                                </a>
+                            </div>
+                         </div>
+                      </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!--?? section script likhsi javascript er-->
+@section scripts{
+
+    @if (ViewBag.ValidationMsg != null)
+    {
+
+        <script>
+            $(document).ready(function () {
+                // Place a value into localStorage, j kno 1ta random value set kortsi jate always true er mto hoy
+                localStorage.setItem("loadedEarlier", "yes");
+
+                // Check to see if this is a page reload or not by seeing if a value was placed // into localStorage from a previous page load
+                if (localStorage.getItem("loadedEarlier")) {
+                    // Page has already loaded earlier
+                    $(".alert-success").css("display", "block"); // jetar display none kore hide korsilam oita ekhn show hbe
+                }
+
+                // save change button click korle page load hbe,
+                //then loadearlier e reload er ager value pabe,
+                //mane condition true, so show korbe
+                /*$("#tabSubmit").click(function () {
+                    location.reload();
+                });*/
+            });
+        </script>
+    }
+}
+
+

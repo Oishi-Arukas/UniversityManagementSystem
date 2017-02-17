@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "Unllocate Room";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+</head>
+<body>
+    <div>
+        <form method="POST">
+            <table>
+                <tr>
+                    <td>
+                        <input type="submit" name="submit" id="submit" value="Unallocate Rooms" class="btn btn-sm btn-success" />
+                    </td>
+                </tr>
+                <tr>
+                    @if (ViewBag.ValidationMsg != null)
+                    {
+                        <p>@ViewBag.ValidationMsg</p>
+                    }
+                </tr>
+            </table>
+        </form> 
+    </div>
+
+    <script src="~/Scripts/jquery-3.1.1.js"></script>
+    
+    <script>
+
+        $(document).ready(function () {
+            $("#submit").click(function () {
+
+                var r = confirm("Are you sure to unallocate all classromms info?");
+                if (r == true) {
+                    var url = '@Url.Action("UnallocateRooms", "Room")';
+                    window.location.href = url;
+                    return true;
+                }
+                return false;
+            });
+
+        });
+    </script>
+
+</body>
+</html>

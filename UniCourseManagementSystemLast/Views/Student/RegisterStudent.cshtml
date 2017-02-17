@@ -1,0 +1,190 @@
+﻿@using UniversityCourseResultManagementSystemWebApp.Models
+@model UniversityCourseResultManagementSystemWebApp.Models.StudentRegister
+@{
+    ViewBag.Title = "Register Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    StudentRegister student = ViewBag.StudentInfo;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>RegisterStudent</title>
+    <!--?? alert-success bootstrap er defined class, etate xtra display add korsi hide korar jnno -->
+    <style>
+        .alert-success {
+            display: none;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="widget-box">
+                <div class="widget-header">
+                    <h4 class="widget-title">Student Registration</h4>
+                    <div class="widget-toolbar">
+                        <a href="#" data-action="collapse">
+                            <i class="ace-icon fa fa-chevron-up"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="widget-body">
+        <div class="widget-main">
+            @using (Html.BeginForm("RegisterStudent", "Student", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <!--?? ei div ta diye show koranor kaj korsi...div start............class label ja ase shb bootstrap er-->
+                <div class="alert alert-success">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                     @if (student != null)
+                     {
+                        if (ViewBag.ValidationMsg == "Successfull.")
+                        {
+                            <h3 style="text-align:center;">Registration Successfull</h3>
+                            <p>
+                                Registration Number:@student.RegNumber<br />
+                                Name:@student.StudentName<br />
+                                Email:@student.StudentEmail<br />
+                                Contact No.:@student.StudentContact<br />
+                                Address:@student.StudentAddress<br />
+                                Reg. Date:@student.RegDate.ToString("dd-MM-yyyy")<br />
+                                Department:@student.DepartmentName<br />
+                            </p>
+                        }
+                        else
+                        {
+                            <p>@ViewBag.ValidationMsg</p>
+                        }
+                     }
+                 </div>
+                <!--?? div end-->
+                <div class="row">
+                    <div class="col-xs-12">
+
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Name
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => c.StudentName, new { @class = "col-xs-5", @placeholder = "Enter Name" })
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c => c.StudentName)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Email
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => c.StudentEmail, new { @class = "col-xs-5", @placeholder = "Enter Email" })
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c => c.StudentEmail)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Contact No.
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => c.StudentContact, new { @class = "col-xs-5", @placeholder = "Enter Contact" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Date
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => c.RegDate, "{0:yyyy-MM-dd}", new { @name = "regDate", @id = "regDate", @type = "date" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Address
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextAreaFor(c => c.StudentAddress, new { @class = "col-xs-5", @placeholder = "Enter Address" })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Department
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.DropDownListFor(c => c.DepartmentId, ViewBag.Department as IEnumerable<SelectListItem>, "Select Department", new { @name = "departmentId", @id = "departmentId" })
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c => c.DepartmentId)
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-actions text-center">
+                            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-floppy-o bigger-110"></i> Register</button>
+                            <a class="btn btn-sm btn-warning" href="">
+                                <i class="fa fa-arrow-left bigger-110"></i>
+                                Refresh
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+</body>
+</html>
+
+<style>
+    .field-validation-error {
+        color: #ff0000;
+        font-weight: bold;
+        padding-left: 20%;
+    }
+</style>
+
+@section scripts{
+    @*<script>
+        $(document).ready(function () {
+            $("#regDate").val(new Date().toDateInputValue());
+            //$("#submit").click(function () {
+            //    if (ViewBag.ValidationMsg != null) {
+
+
+            //    }
+            //})
+        });
+    </script>*@
+    @if (ViewBag.ValidationMsg != null)
+    {
+
+        <script>
+            $(document).ready(function () {
+                // Place a value into localStorage, j kno 1ta random value set kortsi jate always true er mto hoy
+                localStorage.setItem("loadedEarlier", "yes");
+
+                // Check to see if this is a page reload or not by seeing if a value was placed // into localStorage from a previous page load
+                if (localStorage.getItem("loadedEarlier")) {
+                    // Page has already loaded earlier
+                    $(".alert-success").css("display", "block"); // jetar display none kore hide korsilam oita ekhn show hbe
+                }
+
+                // save change button click korle page load hbe,
+                //then loadearlier e reload er ager value pabe,
+                //mane condition true, so show korbe
+                /*$("#tabSubmit").click(function () {
+                    location.reload();
+                });*/
+            });
+        </script>
+    }
+}
+
+

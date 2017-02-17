@@ -1,0 +1,229 @@
+﻿@model UniversityCourseResultManagementSystemWebApp.Models.StudentEnroll
+@{
+    ViewBag.Title = "Enroll course to Student";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+        <div class="row">
+            <div class="col-xs-12">
+                <div class="widget-box">
+                    <div class="widget-header">
+                        <h4 class="widget-title">Enroll In a Course</h4>
+                        <div class="widget-toolbar">
+                            <a href="#" data-action="collapse">
+                                <i class="ace-icon fa fa-chevron-up"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+   
+<style>
+    .field-validation-error {
+        color: #ff0000;
+        font-weight: bold;
+        padding-left: 20%;
+    }
+    .alert-success {
+        display: none;
+    }
+</style>
+   
+
+    <div class="widget-body">
+        <div class="widget-main">
+            @using (Html.BeginForm("EnrollStudent", "Student", FormMethod.Post, new { @class = "form-horizontal", role = "form" }))
+            {
+                @Html.ValidationSummary(true)
+                <!--?? ei div ta diye show koranor kaj korsi...div start............class label ja ase shb bootstrap er-->
+                <div class="alert alert-success">
+                     <a href="#" class="close" data-dismiss="alert" aria-label="close">×</a>
+                     <p>@ViewBag.ValidationMsg</p>
+                 </div>
+                <!--?? div end-->
+                
+                <div class="row">
+                    <div class="col-xs-12">
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Student Reg. No.
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.DropDownList("StudentRegisterId", ViewBag.Students as IEnumerable<SelectListItem>, "Select Reg. Number", new { @name = "studentId", @id = "studentId" })
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c => c.StudentRegisterId)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                 Name
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => @Model.StudentName, new { @class = "col-xs-5", @name = "studentName", @id = "studentName", @readonly = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                 Email
+                            </label>
+
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => @Model.StudentEmail, new { @class = "col-xs-5", @name = "studentEmail", @id = "studentEmail", @readonly = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Department 
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => @Model.DepartmentName, new { @class = "col-xs-5", @name = "departmentName", @id = "departmentName", @readonly = true })
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                Select Course
+                            </label>
+                            <div class="col-sm-10">
+                                @*@Html.DropDownList("CourseId", new SelectList(string.Empty, "Value", "Text"), new { @name = "courseId", @id = "courseId" })*@
+                                @if (ViewBag.Courses != null)
+                                {
+                                    @Html.DropDownList("CourseId", ViewBag.Courses as IEnumerable<SelectListItem>, "Select Course", new { @name = "courseId", @id = "courseId" })
+
+                                }
+                                else
+                                {
+                                    @Html.DropDownList("CourseId", new SelectList(string.Empty, "Value", "Text"), "Select Course", new { @name = "courseId", @id = "courseId" })
+
+                                }
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c => c.CourseId)
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <label class="col-sm-2 control-label no-padding-right" for="form-field-1">
+                                 Date
+                            </label>
+                            <div class="col-sm-10">
+                                @Html.TextBoxFor(c => c.Enrolldate, null, new { @type = "date" })
+                            </div>
+                            <div>
+                                @Html.ValidationMessageFor(c=>c.Enrolldate)
+                            </div>
+                        </div>
+
+                        <div class="clearfix form-actions text-center">
+                            <button type="submit" class="btn btn-sm btn-success"><i class="fa fa-floppy-o bigger-110" value="Enroll"></i> Enroll</button>
+                            <a class="btn btn-sm btn-warning" href="">
+                                <i class="fa fa-arrow-left bigger-110"></i>
+                                Refresh
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            }
+        </div>
+    </div>
+
+
+
+@section scripts{
+    <script>
+        $(document).ready(function() {
+
+            $("#studentId").change(function() {
+
+                var studentId = $("#studentId").val();
+                if (studentId !== 0) {
+                    $("#courseId").empty();
+                    var json = { studentId: studentId };
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("GetStudentInfoByRegNumber", "Student")',
+                        contentType: "application/json; charset=utf-8",
+                        data: JSON.stringify(json),
+
+                        dataType: "json",
+
+
+                        success: function(data) {
+                            $("#studentName").val(data.StudentName);
+
+                            $("#studentEmail").val(data.StudentEmail);
+                            $("#departmentName").val(data.DepartmentName);
+
+                        }
+                    });
+
+
+                    $.ajax({
+                        type: "POST",
+                        url: '@Url.Action("GetCoursesByDepartmentName", "Student")',
+                    contentType: "application/json; charset=utf-8",
+                    data: JSON.stringify(json),
+
+                    dataType: "json",
+
+
+                    success: function(data) {
+                        $("#courseId").append('<option value=' + 0 + '>' + "Select Course" + '</option>');
+                        $.each(data,
+                            function(key, value) {
+                                $("#courseId").append('<option value=' +
+                                    value.CourseId +
+                                    '>' +
+                                    value.CourseName +
+                                    '</option>');
+
+
+                            });
+
+                    }
+                });
+                }
+
+                if (studentId === "") {
+              
+                    $("#courseId").find("option").not(":first").remove();
+                    $("#studentName").val("");
+
+                    $("#studentEmail").val("");
+
+                    $("#departmentName").val("");
+                }
+            });
+
+
+        });
+
+    </script>
+
+    @if (ViewBag.ValidationMsg != null)
+    {
+
+        <script>
+            $(document).ready(function () {
+                // Place a value into localStorage, j kno 1ta random value set kortsi jate always true er mto hoy
+                localStorage.setItem("loadedEarlier", "yes");
+
+                // Check to see if this is a page reload or not by seeing if a value was placed // into localStorage from a previous page load
+                if (localStorage.getItem("loadedEarlier")) {
+                    // Page has already loaded earlier
+                    $(".alert-success").css("display", "block"); // jetar display none kore hide korsilam oita ekhn show hbe
+                }
+
+                // save change button click korle page load hbe,
+                //then loadearlier e reload er ager value pabe,
+                //mane condition true, so show korbe
+                /*$("#tabSubmit").click(function () {
+                    location.reload();
+                });*/
+            });
+        </script>
+    }
+}
+
+
+
