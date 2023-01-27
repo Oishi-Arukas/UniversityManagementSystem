@@ -1,0 +1,239 @@
+﻿@{
+    ViewBag.Title = "Home";
+}
+
+
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Home</title>
+    <link href="~/css/style1.css" rel="stylesheet" type="text/css" media="all" />
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" href="~/css/responsiveslides.css">
+    <script src="~/js1/jquery.min.js"></script>
+    <script src="~/js1/responsiveslides.min.js"></script>
+    <script>
+        // You can also use "$(window).load(function() {"
+        $(function () {
+            // Slideshow 1
+            $("#slider1").responsiveSlides({
+                maxwidth: 2500,
+                speed: 600
+            });
+        });
+    </script>
+    <!--light-box-->
+    <script type="text/javascript" src="~/js1/jquery.lightbox.js"></script>
+    <link rel="stylesheet" type="text/css" href="~/css/lightbox.css" media="screen">
+    <script type="text/javascript">
+        $(function () {
+            $('.gallery a').lightBox();
+        });
+    </script>
+</head>
+<body>
+    <div class="header">
+        <div class="wrap">
+            <div class="header-top">
+                <div class="logo" style="color:white;">
+                    
+                    <img src="~/images/logo33.png" alt=""/> Alphonse University
+                            
+                   
+                </div>
+               <!-- <div class="telephone">
+                    <span><img src="~/images/watch.png" "style=margin-right=10px" alt="" />Call</span><span class="number">(+880) 1776439000</span>
+                </div> -->
+                <div class="clear"></div>
+            </div>
+        </div>
+        <div class="menu">
+            <div class="wrap">
+                <div class="top-nav">
+                    <ul class="nav">
+                        <li class="active"><a href="http://localhost:3025/">Home</a></li>
+                        @*<li><a href="http://localhost:3025/Course/ViewCoursestatics">Course</a></li>*@
+                        <li><a href="http://localhost:3025/Department/ShowAlldepartment">Department</a></li>
+                        <li><a href="">Contact</a></li>
+                        <div class="clear"></div>
+                    </ul>
+                    <div class="search">
+                        <form>
+                            <input type="text" value="">
+                            <input type="submit" value="">
+                        </form>
+                    </div>
+                    <div class="clear"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--start-image-slider---->
+    <div class="image-slider">
+        <!-- Slideshow 1 -->
+        <ul class="rslides" id="slider1">
+            <li><img src="~/images/find-books.jpg" alt=""></li>
+            <li><img src="~/images/o-MALAYSIA-HIGHER-EDUCATION-facebook.jpg" alt=""></li>
+            
+        </ul>
+        <!-- Slideshow 2 -->
+    </div>
+    <!--End-image-slider---->
+    <div class="wrap">
+        <div class="main">
+            <div class="section group">
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="~/images/pic.jpg" alt="" />
+                    <div class="banner-box3">
+                        <span class="text20">Useful Info</span>
+                        <a href="#" class="link2"></a>
+                    </div>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+                    <div class="more">
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="~/images/pic1.jpg" alt="" />
+                    <div class="banner-box3">
+                        <span class="text20">Our Community</span>
+                        <a href="#" class="link2"></a>
+                    </div>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+                    <div class="more">
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="~/images/pic2.jpg" alt="" />
+                    <div class="banner-box3">
+                        <span class="text20">Private Tution</span>
+                        <a href="#" class="link2"></a>
+                    </div>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+                    <div class="more">
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="col_1_of_4 span_1_of_4">
+                    <img src="~/images/pic3.jpg" alt="" />
+                    <div class="banner-box3">
+                        <span class="text20">Basic Program</span>
+                        <a href="#" class="link2"></a>
+                    </div>
+                    <p class="desc">Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna.</p>
+                    <div class="more">
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+            <div class="bottom-grids">
+                <div class="bottom-grid1">
+                    <h3>POPULAR INFO</h3>
+                    <span>consectetur adipisicing elit, sed do eiusmod tempor</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <ul>
+                        <li><a href="#"><img src="~/images/marker1.png"> consectetur adipisicing elit</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> sed do eiusmod tempor incididunt</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> labore et dolore magna aliqua.</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> sed do eiusmod tempor</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> abore et dolore magna</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> incididunt ut labore et dolore</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> dolore magna aliqua</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> adipisicing elit, sed do eiusmod</a></li>
+                        <li><a href="#"><img src="~/images/marker1.png"> adipisicing elit, sed do eiusmod</a></li>
+                        <div class="clear"> </div>
+                    </ul><br>
+                    <a href="#" class="button">Read More</a>
+                </div>
+                <div class="bottom-grid2 bottom-mid">
+                    <h3>Our Staff</h3>
+                    <span>consectetur adipisicing elit, sed do eiusmod tempor</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. consectetur adipisicing elit, sed do eiusmod adipisicing elit, sed do eiusmod tempor incididunt adipisicing elit, sed do</p>
+                    <div class="gallery">
+                        <ul>
+                            <li><a href="images/t-pic4.jpg"><img src="~/images/pic4.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic5.jpg"><img src="~/images/pic5.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic6.jpg"><img src="~/images/pic6.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic7.jpg"><img src="~/images/pic7.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic8.jpg"><img src="~/images/pic8.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic9.jpg"><img src="~/images/pic9.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic10.jpg"><img src="~/images/pic10.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic11.jpg"><img src="~/images/pic11.jpg" alt=""></a></li>
+                            <li><a href="images/t-pic12.jpg"><img src="~/images/pic12.jpg" alt=""></a></li>
+                            <div class="clear"> </div>
+                        </ul><br>
+                        <a href="#" class="button">Read More</a>
+                    </div>
+                </div>
+                <div class="bottom-grid3 bottom-last">
+                    <h3>Latest INFO</h3>
+                    <span>consectetur adipisicing elit, sed do eiusmod tempor</span>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempo.</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt .</p>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt .</p>
+                    <br>
+                    <a href="#" class="button">Read More</a>
+                </div>
+                <div class="clear"> </div>
+            </div>
+        </div>
+    </div>
+    <div class="footer">
+        <div class="wrap">
+            <div class="footer-grids">
+                <div class="footer-grid">
+                    <h3>EXTRAS</h3>
+                    <p>Ut rutrum neque a mollis laoreet diam enim feuiat dui nec ulacoper quam felis id diam. Nunc ut tortor ligula eu petiu risus. Pelleesque conquat dignissim lacus quis altrcies.</p>
+                </div>
+                <div class="footer-grid">
+                    <h3>RECENT POSTS</h3>
+                    <ul>
+                        <li><a href="#">Vestibulum felis</a></li>
+                        <li><a href="#">Mauris at tellus</a></li>
+                        <li><a href="#">Donec ut lectus</a></li>
+                        <li><a href="#">vitae interdum</a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid">
+                    <h3>USEFUL INFO</h3>
+                    <ul>
+                        <li><a href="#">Hendrerit quam</a></li>
+                        <li><a href="#">Amet consectetur </a></li>
+                        <li><a href="#">Iquam hendrerit</a></li>
+                        <li><a href="#">Donec ut lectus </a></li>
+                    </ul>
+                </div>
+                <div class="footer-grid footer-lastgrid">
+                    <h3>CONTACT US</h3>
+                    <p>Pelleesque conquat dignissim lacus quis altrcies.</p>
+                    <div class="footer-grid-address">
+                        <p>Tel.800-255-9999</p>
+                        <p>Fax: 1234 568</p>
+                        <p>Email:<a class="email-link" href="#">email(at)academia.com</a></p>
+                    </div>
+                </div>
+                <div class="clear"> </div>
+            </div>
+            <div class="copy-right">
+                <p>Design by <a href="">&nbsp;MD. Abu Taiyab</a></p>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
+
+
+
+
